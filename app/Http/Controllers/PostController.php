@@ -53,7 +53,7 @@ class PostController extends Controller
         $categories = Category::all();
         $post = Posts::find($id);
 
-        if(auth()->user()->id != $post->id && auth()->user()->role =='author')
+        if(auth()->user()->id != $post->user_id && auth()->user()->role =='author')
             return redirect()->back()->with('errors', 'Não é possível editar uma postagem que não é sua');
 
         return view('posts.edit', compact('categories', 'post'));

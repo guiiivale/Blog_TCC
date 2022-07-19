@@ -42,12 +42,12 @@
 
                             <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
                                 <label>{{ __('Titulo') }}</label>
-                                <input type="text" title="title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ __('Nome') }}" value="{{ old('title', $post->title) }}">
+                                <input type="text" title="title" name="title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ __('Nome') }}" value="{{ old('title', $post->title) }}">
                                 @include('alerts.feedback', ['field' => 'title'])
                             </div>
                             <div class="form-group{{ $errors->has('lead') ? ' has-danger' : '' }}">
                                 <label>{{ __('Lead') }}</label>
-                                <input type="text" lead="lead" class="form-control{{ $errors->has('lead') ? ' is-invalid' : '' }}" placeholder="{{ __('Nome') }}" value="{{ old('lead', $post->lead) }}">
+                                <input type="text" lead="lead" name="lead" class="form-control{{ $errors->has('lead') ? ' is-invalid' : '' }}" placeholder="{{ __('Nome') }}" value="{{ old('lead', $post->lead) }}">
                                 @include('alerts.feedback', ['field' => 'lead'])
                             </div>
                             <div class="input-group{{ $errors->has('category_id') ? ' has-danger' : '' }}">
