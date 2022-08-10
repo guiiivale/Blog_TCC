@@ -95,4 +95,9 @@ class PostController extends Controller
         return redirect()->back()->with('success', 'Posts '. $id . ' deletada com sucesso.');       
     }
 
+    public function allPosts()
+    {
+        $pots = Posts::all();
+        return view ('posts.all-posts')->withPosts($posts);
+    }
 }
