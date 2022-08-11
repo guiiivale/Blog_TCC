@@ -60,12 +60,16 @@
                                     {{$post->user->name}}
                                 </td>
                                 <td>
-                                    <a href="{{route('post.edit', $post->id)}}">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a href="{{route('post.delete', $post->id)}}">
-                                        <i class="fa fa-trash"></i>
-                                    </a>
+                                    <form action="{{route('post.destroy', $post->id)}}" method="POST" id="delete">
+                                        <a href="{{route('post.edit', $post->id)}}">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="#" onclick="submitDelete()">
+                                            @csrf
+                                            @method('delete')
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
@@ -79,4 +83,10 @@
         </div>
     </div>
 </div>
+
+<script>
+    function submitDelete(){
+        document.getElementById('delete').submit();
+    }
+</script>
 @endsection

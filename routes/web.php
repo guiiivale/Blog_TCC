@@ -16,6 +16,7 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 Route::get('/', ['as' => 'index', 'uses' => 'App\Http\Controllers\BlogController@index']);
 Route::get('/article/{id}', ['as' => 'article-details', 'uses' => 'App\Http\Controllers\DetailsController@index']);
 Route::post('/commentary/delete/{id}',['as' => 'commentary.delete', 'uses' => 'App\Http\Controllers\CommentaryController@delete']);
+Route::get('/post/all-posts', ['as' => 'post.all-posts', 'uses' => 'App\Http\Controllers\PostController@allPosts']);
 
 Auth::routes();
             
@@ -48,10 +49,6 @@ Route::prefix('author')
 	Route::get('category/create', ['as' => 'category.create', 'uses' => 'App\Http\Controllers\CategoryController@create']);
 	Route::get('category/edit/{id}', ['as' => 'category.edit', 'uses' => 'App\Http\Controllers\CategoryController@edit']);
 	Route::get('category/delete/{id}', ['as' => 'category.delete', 'uses' => 'App\Http\Controllers\CategoryController@delete']);
-	Route::get('post', ['as' => 'post.index', 'uses' => 'App\Http\Controllers\PostController@index']);
-	Route::get('post/create', ['as' => 'post.create', 'uses' => 'App\Http\Controllers\PostController@create']);
-	Route::get('post/edit/{id}', ['as' => 'post.edit', 'uses' => 'App\Http\Controllers\PostController@edit']);
-	Route::get('post/delete/{id}', ['as' => 'post.delete', 'uses' => 'App\Http\Controllers\PostController@delete']);
 	Route::put('profile/password/{id}', ['as' => 'user.password', 'uses' => 'App\Http\Controllers\UserController@password']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 	Route::resource("category", "App\Http\Controllers\CategoryController");

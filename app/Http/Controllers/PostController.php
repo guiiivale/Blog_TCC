@@ -89,7 +89,7 @@ class PostController extends Controller
         return back()->withSuccess('Post editado com sucesso.');
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
         Posts::destroy($id);
         return redirect()->back()->with('success', 'Posts '. $id . ' deletada com sucesso.');       
@@ -97,7 +97,7 @@ class PostController extends Controller
 
     public function allPosts()
     {
-        $pots = Posts::all();
+        $posts = Posts::all();
         return view ('posts.all-posts')->withPosts($posts);
     }
 }

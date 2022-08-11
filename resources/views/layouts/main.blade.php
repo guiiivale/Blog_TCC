@@ -149,6 +149,11 @@
                                     @endforeach
                                 </ul>
                             </li>
+                            <li class="dropdown nav-item">
+                                <a href="{{route('post.all-posts')}}" class="nav-link" aria-expanded="false">
+                                    Todos os posts
+                                </a>
+                            </li>
                             @endif
                             <li class="separator d-lg-none"></li>
                             <li class="nav-item">
