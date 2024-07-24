@@ -81,8 +81,12 @@
                                 
                             </div>
                     </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-fill btn-primary">{{ __('Salvar') }}</button>
+                    <div class="card-footer" style="display: flex;
+                    justify-content: space-between;">
+                        <a href="{{route('article-details', $post->id)}}" target="_blank">
+                            <button type="button" class="btn btn-fill btn-primary">{{ __('Visitar') }}</button>
+                        </a>
+                        <button type="submit" class="btn btn-fill btn-success">{{ __('Salvar') }}</button>
                     </div>
                 </form>
             </div>

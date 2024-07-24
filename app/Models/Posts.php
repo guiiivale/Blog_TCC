@@ -30,5 +30,4 @@ class Posts extends Model
     {
         return $this->belongsTo(Category::class);
     }
-    
 }
