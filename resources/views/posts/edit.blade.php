@@ -11,7 +11,6 @@
         </ul>
     </div>
 @endif
-
 <style>
     select option{
         background-color: #27293d;
@@ -73,9 +72,16 @@
             
                                 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
                                 <script>
-                                     var editor = CKEDITOR.replace('description')
-                                     CKFinder.setupCKEditor( editor );
-                                </script>   
+                                    var editor = CKEDITOR.replace('description', {
+                                        filebrowserBrowseUrl: '/ckfinder/browser',
+                                        filebrowserUploadUrl: '/ckfinder/connector?command=QuickUpload&type=Files&responseType=json',
+                                        filebrowserImageBrowseUrl: '/ckfinder/browser?type=Images',
+                                        filebrowserImageUploadUrl: '/ckfinder/connector?command=QuickUpload&type=Images&responseType=json',
+                                        filebrowserFlashBrowseUrl: '/ckfinder/browser?type=Flash',
+                                        filebrowserFlashUploadUrl: '/ckfinder/connector?command=QuickUpload&type=Flash&responseType=json'
+                                    });
+                                    CKFinder.setupCKEditor(editor);
+                                </script>
                                 
                                 @include('alerts.feedback', ['field' => 'description'])
                                 

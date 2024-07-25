@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use CKSource\CKFinderBridge\Controller\CKFinderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,11 @@ Route::post('/commentary/delete/{id}',['as' => 'commentary.delete', 'uses' => 'A
 Route::get('/post/all-posts', ['as' => 'post.all-posts', 'uses' => 'App\Http\Controllers\PostController@allPosts']);
 
 Auth::routes();
-            
+
+Route::prefix('ckfinder')->group(function () {
+    Route::any('connector', [CKFinderController::class, 'requestAction'])->name('ckfinder_connector');
+    Route::any('browser', [CKFinderController::class, 'browserAction'])->name('ckfinder_browser');
+});
 
 Route::prefix('admin')
   ->middleware(['auth', 'can:accessAdmin'])
